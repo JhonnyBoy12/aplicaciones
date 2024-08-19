@@ -1,10 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Inicio de sesión</ion-title>
+    <ion-title> Comuna:{{ comuna }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button color="success" [routerLink]="['/home']">IR AL HOME</ion-button>
-  <ion-button color="warning"(click)="irPagina()">Ir a agregar</ion-button>
+  <p>{{arreglo.nombre}}</p>
+  <ion-item>
+    <ion-input
+      label="Nombre"
+      labelPlacement="floating"
+      placeholder="Ingrese su nombre"[(ngModel)]="nombreUsuario"
+    ></ion-input>
+
+  </ion-item>
+  <ion-button color="success" [routerLink]="['/home']">IR AL HOME {{nombreUsuario}}</ion-button>
+  <ion-button color="warning" (click)="irPagina()">Ir a agregar</ion-button>
 </ion-content>
