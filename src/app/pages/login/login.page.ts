@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
   arreglo: any = {
     nombre: 'Diego',
     apellido: 'Cruz',
-    edad: 47
+    edad: 25
   }
 
   //CREACION DE LISTAS/COLECCION --- propiedades entre "[]"
@@ -25,6 +25,14 @@ export class LoginPage implements OnInit {
     {
       id: 1,
       nombre: "Maríá"
+    },
+    {
+      id: 2,
+      nombre: "José"
+    },
+    {
+      id: 3,
+      nombre: "Juan"
     }
   ]
 
@@ -36,7 +44,16 @@ export class LoginPage implements OnInit {
   }
   irPagina(){
 
-    this.router.navigate(['/agregar']);
+    //creamos la variable de contexto
+    let navigationextras: NavigationExtras = {
+      state:{
+        com: this.comuna,
+        ed: this.edad,
+        user: this.nombreUsuario
+      }
+    }
+
+    this.router.navigate(['/agregar'], navigationextras);
   }
 
 }

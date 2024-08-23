@@ -5,15 +5,21 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <p>{{arreglo.nombre}}</p>
+  <!-----CONDICIONAL IF-->
+  <p *ngIf="edad < 20">{{arreglo.nombre | uppercase}}</p>
   <ion-item>
     <ion-input
       label="Nombre"
       labelPlacement="floating"
       placeholder="Ingrese su nombre"[(ngModel)]="nombreUsuario"
     ></ion-input>
-
+  
   </ion-item>
   <ion-button color="success" [routerLink]="['/home']">IR AL HOME {{nombreUsuario}}</ion-button>
   <ion-button color="warning" (click)="irPagina()">Ir a agregar</ion-button>
+
+  <ion-item *ngFor="let x of lista">
+    <ion-label><b>Id: </b>{{x.id}}</ion-label>
+    <ion-label><b>Nombre: </b>{{x.nombre | lowercase}}</ion-label>
+  </ion-item>
 </ion-content>
