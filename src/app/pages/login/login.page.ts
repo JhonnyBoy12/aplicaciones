@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { AlertController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -38,7 +39,7 @@ export class LoginPage implements OnInit {
 
   //
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private alertController: AlertController, private toastController: ToastController) { }
 
   ngOnInit() {
   }
@@ -52,8 +53,29 @@ export class LoginPage implements OnInit {
         user: this.nombreUsuario
       }
     }
-
+    ///crear la loguca de programacion que requiero
+    //this.presentAlert('Titulo alerta', 'Mensaje de la alerta');
+    this.presentToast('bottom');
     this.router.navigate(['/agregar'], navigationextras);
+  }
+  async presentAlert(titulo:string, msj:string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: msj,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+  async presentToast(position: 'top' | 'middle' | 'bottom') {
+    const toast = await this.toastController.create({
+      message: 'Hola Mundo',
+      duration: 1500,
+      position: position,
+    });
+
+
+    await toast.present();
   }
 
 }
