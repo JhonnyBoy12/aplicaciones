@@ -1,11 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Inicio de sesion</ion-title>
-    <ion-buttons slot="start">
-    <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title> Comuna:{{ comuna }}</ion-title>
-  </ion-toolbar>
+  <app-componente1 titulo="Pagina sesion" [datos]="arreglo"></app-componente1> <!----[datos] hace que s epuedan enviar datos-->
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -19,6 +13,7 @@
     ></ion-input>
   
   </ion-item>
+  <mat-spinner></mat-spinner> ///elemento angular
   <ion-button color="success" [routerLink]="['/home']">IR AL HOME {{nombreUsuario}}</ion-button>
   <ion-button color="warning" (click)="irPagina()">Ir a agregar</ion-button>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-componente1',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Componente1Component  implements OnInit {
 
+  @Input()titulo:string = "";///tiene que estar al inicio de las variables
+  @Input()datos:any;
+  comuna:string ="";
   constructor() { }
 
   ngOnInit() {}
